@@ -29,3 +29,28 @@ func TestGenerateCombination(t *testing.T) {
 		t.Errorf("idx = last, want = 789, got = %s", last)
 	}
 }
+
+func TestBetweenMinMax(t *testing.T) {
+	type args struct {
+		min int
+		max int
+	}
+	tests := []struct {
+		name string
+		args args
+		want []int
+	}{
+		{
+			name: "min = 5, max = 10",
+			args: args{min: 5, max: 10},
+			want: []int{6, 7, 8, 9},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got, _ := BetweenMinMax(tt.args.min, tt.args.max); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("BetweenMinMax() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}

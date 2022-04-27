@@ -51,3 +51,17 @@ func GenerateStringTupleCombination() {
 		}
 	}
 }
+
+// BetweenMinMax return all numbers between min and max number
+func BetweenMinMax(min, max int) ([]int, error) {
+	if max-min < 0 {
+		return nil, fmt.Errorf("cannot compute because max < min: %d < %d", max, min)
+	}
+
+	res := make([]int, max-min-1)
+	for cptr, i := 0, min+1; i < max; i, cptr = i+1, cptr+1 {
+		res[cptr] = i
+	}
+
+	return res, nil
+}

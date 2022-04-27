@@ -91,3 +91,21 @@ func TestIsOnlyDigit(t *testing.T) {
 		})
 	}
 }
+
+func TestIsOnlyAlphabet(t *testing.T) {
+
+	var v string
+	var got, exp bool
+
+	v = "Bonjour"
+	got, exp = IsOnlyAlphabet(v), true
+	if got != exp {
+		t.Errorf("IsOnlyAlphabet(%s) = %t, exp = %t", v, got, exp)
+	}
+
+	v = "Bonjour 42"
+	got, exp = IsOnlyAlphabet(v), false
+	if got != exp {
+		t.Errorf("IsOnlyAlphabet(%s) = %t, exp = %t", v, got, exp)
+	}
+}
