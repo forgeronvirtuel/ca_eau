@@ -77,10 +77,12 @@ func UpperFirstCharEachWord(txt string) string {
 	// Look each character of the text, if a space has been seen then
 	// the current char should be upper, otherwise add the character
 	// to the builder.
+	var first bool = true
 	for _, r := range txt {
-		if nextShouldUpper {
+		if nextShouldUpper || first {
 			builder.WriteRune(unicode.ToUpper(r))
 			nextShouldUpper = false
+			first = false
 			continue
 		}
 		if r == ' ' {
