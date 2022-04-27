@@ -127,3 +127,39 @@ func FindIndexOfString(list []string, toSearch string) int {
 	}
 	return -1
 }
+
+func isBefore(s1, s2 string) bool {
+	maxlen := len(s1)
+	if maxlen < len(s2) {
+		maxlen = len(s2)
+	}
+
+	// Check character by character
+	for idx := 0; idx < maxlen; idx++ {
+		r1, r2 := s1[idx], s2[idx]
+		if r1 == r2 {
+			continue
+		}
+
+		if r1 < r2 {
+			return true
+		}
+		return false
+	}
+
+	// If every character are the same, use the length. For instance: "Bon" is before "Bonjour".
+	return len(s1) < len(s2)
+}
+
+// SortString sorts in alphabetical order the given list of string
+func SortString(toSort []string) []string {
+	for cptr := len(toSort) - 1; cptr > 0; cptr-- {
+		for i := 0; i < cptr; i++ {
+			if isBefore(toSort[i], toSort[i+1]) {
+				continue
+			}
+			toSort[i], toSort[i+1] = toSort[i+1], toSort[i]
+		}
+	}
+	return toSort
+}

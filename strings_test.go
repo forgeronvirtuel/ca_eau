@@ -1,6 +1,7 @@
 package water
 
 import (
+	"reflect"
 	"testing"
 )
 
@@ -137,6 +138,30 @@ func TestFindIndexOfString(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := FindIndexOfString(tt.args.list, tt.args.s); got != tt.want {
 				t.Errorf("FindIndexOfString() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestSortString(t *testing.T) {
+	type args struct {
+		list []string
+	}
+	tests := []struct {
+		name string
+		args args
+		want []string
+	}{
+		{
+			name: "standard use case",
+			args: args{list: []string{"Alfred", "Momo", "Gilbert"}},
+			want: []string{"Alfred", "Gilbert", "Momo"},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := SortString(tt.args.list); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("SortString() = %v, want %v", got, tt.want)
 			}
 		})
 	}
