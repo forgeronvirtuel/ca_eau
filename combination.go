@@ -65,3 +65,32 @@ func BetweenMinMax(min, max int) ([]int, error) {
 
 	return res, nil
 }
+
+// MinimalAbsoluteDifference computes the differences between each members
+// of the array and return the minimal one.
+func MinimalAbsoluteDifference(numbers []int) int {
+	min, set := 0, false
+	for idx1, n1 := range numbers {
+		for idx2, n2 := range numbers {
+			if idx1 == idx2 {
+				continue
+			}
+
+			diff := n1 - n2
+			if diff < 0 {
+				diff *= -1
+			}
+
+			if !set {
+				min = diff
+				set = true
+			} else {
+				if diff < min {
+					min = diff
+				}
+			}
+		}
+	}
+
+	return min
+}

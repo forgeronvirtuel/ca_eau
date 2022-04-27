@@ -55,3 +55,32 @@ func TestBetweenMinMax(t *testing.T) {
 		})
 	}
 }
+
+func TestMinimalAbsoluteDifference(t *testing.T) {
+	type args struct {
+		numbers []int
+	}
+	tests := []struct {
+		name string
+		args args
+		want int
+	}{
+		{
+			name: "normal use case 1",
+			args: args{numbers: []int{5, 1, 19, 21}},
+			want: 2,
+		},
+		{
+			name: "normal use case 2",
+			args: args{numbers: []int{-8, -6, 4}},
+			want: 2,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := MinimalAbsoluteDifference(tt.args.numbers); got != tt.want {
+				t.Errorf("MinimalAbsoluteDifference() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
