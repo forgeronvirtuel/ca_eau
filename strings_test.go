@@ -109,3 +109,33 @@ func TestIsOnlyAlphabet(t *testing.T) {
 		t.Errorf("IsOnlyAlphabet(%s) = %t, exp = %t", v, got, exp)
 	}
 }
+
+func TestFindIndexOfString(t *testing.T) {
+	type args struct {
+		list []string
+		s    string
+	}
+	tests := []struct {
+		name string
+		args args
+		want int
+	}{
+		{
+			name: "standard use case",
+			args: args{list: []string{"Bonjour", "je", "s'appelle", "groot"}, s: "groot"},
+			want: 3,
+		},
+		{
+			name: "not find use case",
+			args: args{list: []string{"Bonjour", "je", "s'appelle", "groot"}, s: "test"},
+			want: -1,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := FindIndexOfString(tt.args.list, tt.args.s); got != tt.want {
+				t.Errorf("FindIndexOfString() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}

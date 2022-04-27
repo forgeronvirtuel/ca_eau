@@ -112,3 +112,12 @@ func IsOnlyAlphabet(s string) bool {
 	}
 	return true
 }
+
+func FindIndexOfString(list []string, toSearch string) int {
+	for idx, s := range list {
+		if s == toSearch {
+			return idx
+		}
+	}
+	return -1
+}
