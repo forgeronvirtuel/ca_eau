@@ -62,3 +62,32 @@ func TestUpperFirstCharEachWord(t *testing.T) {
 		t.Errorf("UpperFirstCharEachWord(%s) = %s, exp = %s", v, got, exp)
 	}
 }
+
+func TestIsOnlyDigit(t *testing.T) {
+	type args struct {
+		s string
+	}
+	tests := []struct {
+		name string
+		args args
+		want bool
+	}{
+		{
+			name: "normal case",
+			args: args{s: "1726371361"},
+			want: true,
+		},
+		{
+			name: "error case",
+			args: args{s: "82731 Bonjour"},
+			want: false,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := IsOnlyDigit(tt.args.s); got != tt.want {
+				t.Errorf("IsOnlyDigit() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}

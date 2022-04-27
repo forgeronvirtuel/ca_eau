@@ -91,3 +91,14 @@ func UpperFirstCharEachWord(txt string) string {
 
 	return builder.String()
 }
+
+// IsOnlyDigit Run on each character and check if it is a number
+func IsOnlyDigit(s string) bool {
+	for _, r := range s {
+		if r < '0' || '9' < r {
+			return false
+		}
+	}
+	return true
+}
+
