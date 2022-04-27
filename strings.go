@@ -6,8 +6,8 @@ import (
 	"unicode"
 )
 
-// DisplayRevert Print each string in the array from the last one
-// to the first one
+// DisplayRevert print each string in the array from the last one
+// to the first one.
 func DisplayRevert(ar []string) {
 	for i := len(ar) - 1; i > 0; i-- {
 		fmt.Println(ar[i])
@@ -28,7 +28,7 @@ func isSubstring(s, text string, idx int) bool {
 	return true
 }
 
-// IsSubstringOf test if the string s in the given text
+// IsSubstringOf test if the string s in the given text.
 func IsSubstringOf(txt, s string) bool {
 	if s == "" {
 		return true
@@ -47,10 +47,14 @@ func IsSubstringOf(txt, s string) bool {
 	return false
 }
 
-// UpperOneOnTwo Upper one character over two
+// UpperOneOnTwo upper one character over two
 func UpperOneOnTwo(txt string) string {
 	var cptr int
 	var builder strings.Builder
+
+	// Check each char if it should be upper or not.
+	// A char should be upper only if it is an alphabet char and
+	// if its position is pair.
 	for i := 0; i <= len(txt)-1; i++ {
 		r := rune(txt[i])
 		isAlphabet := 'a' <= r && r <= 'z' || 'A' <= r && r <= 'Z'
@@ -69,7 +73,7 @@ func UpperOneOnTwo(txt string) string {
 	return builder.String()
 }
 
-// UpperFirstCharEachWord upper every first characters for each word in a string
+// UpperFirstCharEachWord upper every first characters for each word in a string.
 func UpperFirstCharEachWord(txt string) string {
 	var builder strings.Builder
 	var nextShouldUpper bool
@@ -94,7 +98,7 @@ func UpperFirstCharEachWord(txt string) string {
 	return builder.String()
 }
 
-// IsOnlyDigit Run on each character and check if it is a number
+// IsOnlyDigit run on each character and check if it is a number.
 func IsOnlyDigit(s string) bool {
 	for _, r := range s {
 		if r < '0' || '9' < r {
@@ -104,6 +108,7 @@ func IsOnlyDigit(s string) bool {
 	return true
 }
 
+// IsOnlyAlphabet check if a string is only composed of letters.
 func IsOnlyAlphabet(s string) bool {
 	for _, c := range s {
 		if !unicode.IsLetter(c) {
@@ -113,6 +118,7 @@ func IsOnlyAlphabet(s string) bool {
 	return true
 }
 
+// FindIndexOfString finds the index of a string.
 func FindIndexOfString(list []string, toSearch string) int {
 	for idx, s := range list {
 		if s == toSearch {

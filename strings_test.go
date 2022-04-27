@@ -1,6 +1,8 @@
 package water
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestIsSubstringOf(t *testing.T) {
 	var txt, s string

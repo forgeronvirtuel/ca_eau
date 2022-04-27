@@ -1,5 +1,6 @@
 package water
 
+// Fibonacci computes the nth number of Fibonacci.
 func Fibonacci(n int) int {
 
 	f_2 := 0

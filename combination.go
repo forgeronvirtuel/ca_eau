@@ -40,7 +40,7 @@ func GenerateCombination() []string {
 	return combination
 }
 
-// GenerateStringTupleCombination Generates strings with tuples from 00 to 99
+// GenerateStringTupleCombination generates strings with tuples from 00 to 99
 // and such that the second element starts with the first one + 1. For instance
 // there is the following series 97 98, 97 99, 98 99 but there is not 97 01,
 // 97 02, ...
@@ -52,7 +52,7 @@ func GenerateStringTupleCombination() {
 	}
 }
 
-// BetweenMinMax return all numbers between min and max number
+// BetweenMinMax returns all numbers between min and max.
 func BetweenMinMax(min, max int) ([]int, error) {
 	if max-min < 0 {
 		return nil, fmt.Errorf("cannot compute because max < min: %d < %d", max, min)
