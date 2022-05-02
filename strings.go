@@ -39,7 +39,6 @@ func IsSubstringOf(txt, s string) bool {
 			continue
 		}
 		if isSubstring(s, txt, idx) {
-			fmt.Println(true)
 			return true
 		}
 	}
