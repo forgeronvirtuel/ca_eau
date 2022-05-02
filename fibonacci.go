@@ -1,4 +1,4 @@
-package water
+package ca_eau
 
 // Fibonacci computes the nth number of Fibonacci.
 func Fibonacci(n int) int {

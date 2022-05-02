@@ -1,4 +1,4 @@
-package water
+package ca_eau
 
 // BubbleSort implement the bubble sort algorithm.
 func BubbleSort(toSort []int) []int {

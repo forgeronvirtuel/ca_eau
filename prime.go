@@ -1,4 +1,4 @@
-package water
+package ca_eau
 
 func isPrime(n int) bool {
 	for div := 2; div < n; div++ {

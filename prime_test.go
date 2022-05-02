@@ -1,4 +1,4 @@
-package water
+package ca_eau
 
 import "testing"
 
