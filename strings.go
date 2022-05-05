@@ -14,7 +14,9 @@ func DisplayRevert(ar []string) {
 	}
 }
 
-func isSubstring(s, text string, idx int) bool {
+// IsSubstringAt returns true if the text at the given position correspond to
+// the given string s.
+func IsSubstringAt(s, text string, idx int) bool {
 	// Loop with two indices, one for the string and one for the text
 	// Stop when one of the two indices will
 	for i, j := idx, 0; i <= len(text) && j < len(s); i, j = i+1, j+1 {
@@ -28,6 +30,18 @@ func isSubstring(s, text string, idx int) bool {
 	return true
 }
 
+// FindAllPosition finds all the positions in a string of a given character.
+func FindAllPosition(s string, r rune) []int {
+	pos := []int{}
+	for idx, c := range s {
+		if c != r {
+			continue
+		}
+		pos = append(pos, idx)
+	}
+	return pos
+}
+
 // IsSubstringOf test if the string s in the given text.
 func IsSubstringOf(txt, s string) bool {
 	if s == "" {
@@ -38,7 +52,7 @@ func IsSubstringOf(txt, s string) bool {
 		if c != fistChar {
 			continue
 		}
-		if isSubstring(s, txt, idx) {
+		if IsSubstringAt(s, txt, idx) {
 			return true
 		}
 	}

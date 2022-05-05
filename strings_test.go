@@ -166,3 +166,59 @@ func TestSortString(t *testing.T) {
 		})
 	}
 }
+
+func TestFindAllPosition(t *testing.T) {
+	type args struct {
+		s string
+		r rune
+	}
+	tests := []struct {
+		name string
+		args args
+		want []int
+	}{
+		{
+			name: "standard use case",
+			args: args{s: "This is a text and this is not", r: 'i'},
+			want: []int{2, 5, 21, 24},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := FindAllPosition(tt.args.s, tt.args.r); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("FindAllPosition() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestIsSubstringAt(t *testing.T) {
+	type args struct {
+		s    string
+		text string
+		idx  int
+	}
+	tests := []struct {
+		name string
+		args args
+		want bool
+	}{
+		{
+			name: "true case",
+			args: args{s: "is", text: "this is a text", idx: 2},
+			want: true,
+		},
+		{
+			name: "false case",
+			args: args{s: "is", text: "this is a text", idx: 8},
+			want: false,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := IsSubstringAt(tt.args.s, tt.args.text, tt.args.idx); got != tt.want {
+				t.Errorf("IsSubstringAt() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
